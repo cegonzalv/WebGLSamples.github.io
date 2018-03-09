@@ -79,7 +79,6 @@ div.title {
   font-weight: bold;
 }
 </style>
-<script type="text/javascript" src="../khronos/webgl-debug.js"></script>
 <script type="text/javascript" src="../tdl/base.js"></script>
 <script type="text/javascript" src="flower.js"></script>
 <script type="text/javascript" src="postprocess.js"></script>
@@ -126,9 +125,9 @@ function mainloop() {
   function render() {
     var now = ((new Date()).getTime() - bootTime) * 0.001;
     var music_time = now;
-    aspect = canvas.clientWidth / canvas.clientHeight
+    aspect = canvas.clientWidth / canvas.clientHeight;
     var framebuffer = backbuffer;
-    singleEffect.render(framebuffer, music_time, g_postProc)
+    singleEffect.render(framebuffer, music_time, g_postProc);
     g_requestId = tdl.webgl.requestAnimationFrame(render, canvas);
   }
   render();

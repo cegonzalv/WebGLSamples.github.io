@@ -30,7 +30,9 @@
  */
 
 function FlowerEffect() {
-  var arrays = tdl.primitives.createFlaredCube(0.01, 3.0, 1400)
+//pCreates a flared Cube with inner size of 0.01, outer size of 3.0 and 1400 layers.
+  var arrays = tdl.primitives.createFlaredCube(0.01, 3.0, 1400);
+  //carga los programas flower_vs y flower_fs.
   var program = tdl.programs.loadProgramFromScriptTags("flower_vs", "flower_fs")
   var textures = []
 
@@ -70,7 +72,9 @@ function FlowerEffect() {
   }
 
   this.render = function(framebuffer, time, postproc) {
+    //ajusta la cámara a donde se está mostrando la flor
     m4.perspective(proj, tdl.math.degToRad(60), aspect, 0.1, 500);
+    //hace una rotación en Y de cada una de las partes de la flor a medida que se van generando.
     m4.rotationY(world, time*0.2)
     m4.mul(viewproj, view, proj)
     m4.mul(worldviewproj, world, viewproj)
